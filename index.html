@@ -25,12 +25,54 @@
          section {
             margin-top: 100 px;
          }
-    </style>
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    width: 30%;
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+div.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+div.product-container > div {
+    width: 200px;
+    text-align: center;
+}
+div.product-container > div {
+    width: 200px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    background-color: #fff;
+}
+</style>
     </head>
  <body>
     <header>
  <h1>Yeşilyol Petshop</h1>
 <nav>
+
     <ul>
         <li><a href="#anasayfa">Ana Sayfa</a></li>
         <li><a href="#urunlerimiz">Ürünlerimiz</a></li>
@@ -66,9 +108,70 @@
 <p>Telefon: 0 (546) 266 46 36</p>
 </section>
 <br>
-
+<div class="product-container">
+    <div onclick="openModal('modal1')" style="cursor: pointer;">
+      <img src="reflex.jpg" alt="Reflex Plus" style="width: 150px;">
+      <p><strong>Reflex Plus Tavuklu Yavru Kedi Maması</strong></p>
+    </div>
+    <br>
+    <div onclick="openModal('modal2')" style="cursor: pointer;">
+      <img src="reflex.jpg" alt="Reflex Plus" style="width: 150px;">
+      <p>Reflex Plus Yavru Kedi Maması</p>
+    </div>
+    <br>
+    <div onclick="openModal('modal3')" style="cursor: pointer;">
+      <img src="reflex.jpg" alt="Reflex Plus" style="width: 150px;">
+      <p>Reflex Plus Yavru Kedi Maması</p>
+    </div>
+    <br>
+    <div onclick="openModal('modal4')" style="cursor: pointer;">
+      <img src="reflex.jpg" alt="Reflex Plus" style="width: 150px;">
+      <p>Reflex Plus Yavru Kedi Maması</p>
+    </div>
+    <br>
+    <div onclick="openModal('modal5')" style="cursor: pointer;">
+      <img src="reflex.jpg" alt="Reflex Plus" style="width: 150px;">
+      <p>Reflex Plus Yavru Kedi Maması</p>
+    </div>
+  </div>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <h2>Reflex Plus Tavuklu Yavru Kedi Maması</h2>
+      <img src="reflex.jpg" alt="Reflex Plus" style="width:150px;">
+      <p>Bu mama yavru kediler için özel olarak formüle <br> edilmiştir. Sağlıklı büyüme ve güçlü bağışıklık için idealdir.</p>
+      <p><strong>Fiyat</strong>:Belirtilmedi</p>
+    </div>
+  </div>
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <h2>Reflex Plus Yavru Kedi Maması</h2>
+      <img src="reflex.jpg" alt="Reflex Plus" style="width:150px;">
+      <p>Bu mama yavru kediler için özel olarak formüle edilmiştir. Sağlıklı büyüme ve güçlü bağışıklık için idealdir.</p>
+      <p>Fiyat:Belirtilmedi</p>
+    </div>
+  </div>
 <footer>
     <p>© 2025 Yeşilyol Petshop - Tüm Hakları Saklıdır </p>
 </footer>
+<script>
+    function openModal(id) {
+        document.getElementById(id).style.display = 'block';
+    }
+    
+    function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+    
+    window.onclick = function(event) {
+        let modals = document.getElementsByClassName('modal');
+        for (let i = 0; i < modals.length; i++) {
+            if (event.target == modals[i]) {
+                modals[i].style.display = 'none';
+            }
+        }
+    }
+    </script>
     </body>
-    </html>
+        </html>
